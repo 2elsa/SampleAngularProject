@@ -1,0 +1,43 @@
+.account-container {
+  background: #fff repeat-y;
+  height: 100%;
+}
+
+.pane-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.pane {
+  flex: 1;
+}
+
+.right-pane {
+  overflow-y: auto;
+}
+
+.img-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 160px;
+  img {
+    height: 58px;
+    width: 130px;
+  }
+}
+
+#sidebar {
+  width: 60%;
+}
+@media (max-width: 499px) {
+  .left-pane {
+    display: none;
+  }
+  #sidebar {
+    width: 100%;
+  }
+}

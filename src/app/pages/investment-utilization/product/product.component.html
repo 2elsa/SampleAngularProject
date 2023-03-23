@@ -1,0 +1,15 @@
+<div>
+    <app-checklist-dialog-display [optionList]="optionList" [title]="title"
+        [contentTemplate]="noteTemplate"
+        (selectionChanged)="onSelectionChanged($event)">
+    </app-checklist-dialog-display>
+
+    <ng-template #noteTemplate>
+        <p class="form-note">
+            <span class="highlight">Note: </span>
+            <span>
+                Editing this will update your main profile as well as your mentor/mentee profile if applicable.
+            </span>
+        </p>
+    </ng-template>
+</div>

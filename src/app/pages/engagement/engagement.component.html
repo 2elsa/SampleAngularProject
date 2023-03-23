@@ -1,0 +1,98 @@
+<ng-container *ngIf="model">
+    <div>
+        <h2>Engagement</h2>
+        <article>
+            <h3>Wealth Manager Preferred Contact Time<a (click)="openDialog(dialogType.contact_time)"><img
+                        src="{{Images.editIcon}}"></a></h3>
+            <p>Increase asset manager and wealth manager productivity by providing them the best times to engage wealth manager or their advisors</p>
+            <ng-container *ngIf="model.contactTimes.length; else addContactTimeTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let time of model.contactTimes">{{time.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addContactTimeTemplate>
+                <a (click)="openDialog(dialogType.contact_time)"><p class="entry">Add Wealth Manager Preferred Contact Time</p></a>
+            </ng-template>
+        </article>
+
+        <article>
+            <h3>Desired Solutions & Services<a (click)="openDialog(dialogType.desired_solution)"><img
+                        src="{{Images.editIcon}}"></a></h3>
+            <p>What solutions and/or services would be useful for a trusted partner to bring to you?</p>
+            <ng-container *ngIf="model.desiredSolutions.length; else addSolutionTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let time of model.desiredSolutions">{{time.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addSolutionTemplate>
+                <a (click)="openDialog(dialogType.desired_solution)"><p class="entry">Add Desired Solutions & Services</p></a>
+            </ng-template>
+        </article>
+
+        <article>
+            <h3>Contact Frequency<a (click)="openDialog(dialogType.frequency)"><img src="{{Images.editIcon}}"></a></h3>
+            <p>If you are working with an asset manager, what is your preferred level of engagement throughout a year?</p>
+            <ng-container *ngIf="model.contactFrequencies.length; else addFrequencyTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let time of model.contactFrequencies">{{time.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addFrequencyTemplate>
+                <a (click)="openDialog(dialogType.frequency)"><p class="entry">Add Contact Frequency</p></a>
+            </ng-template>
+        </article>
+
+        <article>
+            <h3>Client Focus<a (click)="openDialog(dialogType.client_focus)"><img src="{{Images.editIcon}}"></a></h3>
+            <p>What type of clients do you and your firm focus on</p>
+            <ng-container *ngIf="model.clientFocus.length; else addClientFocusTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let time of model.clientFocus">{{time.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addClientFocusTemplate>
+                <a (click)="openDialog(dialogType.client_focus)"><p class="entry">Add Client Focus</p></a>
+            </ng-template>
+        </article>
+
+        <article>
+            <h3>Investment Implementation<a (click)="openDialog(dialogType.investment)"><img
+                        src="{{Images.editIcon}}"></a></h3>
+            <p>Inform asset managers how you implement your investments. This will help reduce disruptions to your work
+                day by ensuring asset managers know if you need their services.</p>
+            <ng-container *ngIf="model.investments.length; else addInvestmentTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let time of model.investments">{{time.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addInvestmentTemplate>
+                <a (click)="openDialog(dialogType.investment)"><p class="entry">Add Investment Implementation</p></a>
+            </ng-template>
+        </article>
+
+        <article>
+            <h3>Preferred Engagement<a (click)="openDialog(dialogType.engagement)"><img src="{{Images.editIcon}}"></a></h3>
+            <p>How they prefer to engage.</p>
+            <ng-container *ngIf="model.engagements.length; else addEngagementTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let time of model.engagements">{{time.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addEngagementTemplate>
+                <a (click)="openDialog(dialogType.engagement)"><p class="entry">Add Preferred Engagement</p></a>
+            </ng-template>
+        </article>
+
+        <article>
+            <h3>Contact<a (click)="openDialog(dialogType.reviewer)"><img src="{{Images.editIcon}}"></a></h3>
+            <p>Who on your team reviews asset managers?</p>
+            <ng-container *ngIf="model.reviewer && model.reviewer.reviewer; else addReviewerTemplate">
+                <div class="content">{{model.reviewer!!.reviewer}}</div>
+            </ng-container>
+            <ng-template #addReviewerTemplate>
+                <a (click)="openDialog(dialogType.reviewer)"><p class="entry">Add who on your team reviews asset managers?</p></a>
+            </ng-template>
+        </article>
+
+    </div>
+</ng-container>

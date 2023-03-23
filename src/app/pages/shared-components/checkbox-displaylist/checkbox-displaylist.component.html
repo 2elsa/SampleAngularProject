@@ -1,0 +1,19 @@
+<ng-container *ngFor="let option of dataList">
+    <label [ngClass]="displayType">
+        <ng-container [ngSwitch]="checkboxType">
+            <ng-container *ngSwitchCase="'checkbox'">
+                <input type="checkbox" value="{{option.id}}" [(ngModel)]="option.checked"
+                    (change)="triggerSelectionChange(option)"> {{option.name}}
+            </ng-container>
+            <ng-container *ngSwitchCase="'radio'">
+                <input type="radio" [value]="option.id" [id]="option.id" name="selectOption"
+                    [checked]="option.checked"
+                   (click)="option.checked = !option.checked; triggerRadioButtonChanged(option)">
+                {{option.name}}
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+                <b>No input type selected by the switch statement</b>
+            </ng-container>
+        </ng-container>
+    </label>
+</ng-container>

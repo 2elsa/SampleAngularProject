@@ -1,0 +1,25 @@
+$color-gray: #f2f2f2;
+$color-highlight-yellow: #ffffe0;
+$color-gold: #daa128;
+$color-blue-gray: #50606f;
+$color-black: #000000;
+$color-white: #ffffff;
+$color-pennsylvania-sky:#009CDE;
+$color-nitammy-navy: #001e44;
+$color-red:red;
+$color-green: rgb(50, 170, 50);
+$color-disabled: #f4f4f4;
+$input-number-height: 25px;
+$font-family: "Montserrat", sans-serif;
+$form-input-height: 42px;
+
+@mixin input-style {  
+    font-family: $font-family;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }

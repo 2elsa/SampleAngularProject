@@ -1,0 +1,12 @@
+<ng-container *ngIf="model">
+    <app-dialog-display [title]="title">
+        <div class="form-content">
+            <p><label for="crd_number">Enter CRD Number</label></p>
+            <p><input type="text" id="crd_number" [(ngModel)]="model.crd_Number"></p>
+        </div>
+        <div class="btn-container">
+            <button mat-button (click)="saveChanges(model)">Save</button>
+            <button mat-button [mat-dialog-close]>Close</button>
+        </div>
+    </app-dialog-display>
+</ng-container>

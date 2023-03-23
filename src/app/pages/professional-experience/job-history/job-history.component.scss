@@ -1,0 +1,39 @@
+@import "_variables";
+
+.checkbox-container {
+  margin: 10px 0px 16px 0px;
+}
+
+::ng-deep {
+  .mat-form-field {
+    width: 100%;
+    // font-family: "Montserrat", sans-serif;
+  }
+  .mat-input-element.mat-datepicker-input{
+    margin-top: 0px;
+    color: $color-black;
+  }
+
+  .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0px;
+  }
+  .mat-form-field-appearance-outline .mat-form-field-flex {
+    margin-top: 0px;
+  }
+  .mat-form-field-wrapper {
+    padding: 0px;
+  }
+  .mat-form-field-appearance-outline .mat-form-field-flex,
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #ccc;
+  }
+  .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 8px 0 8px 0;
+  }
+  .mat-form-field-disabled .mat-form-field-wrapper{
+    background-color: $color-disabled;
+  }
+  .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+    color: inherit;
+  }
+}

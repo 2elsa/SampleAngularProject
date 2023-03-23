@@ -1,0 +1,83 @@
+<ng-container *ngIf="model">
+    <div>
+        <h2>Professional Experience</h2>
+        <article>
+            <h3>Bio <a (click)="openDialog(dialogType.bio)" *ngIf="!model.biography?.description"><img class="has-cursor" src="{{Images.addIcon}}"></a></h3>
+            <p>Share information about yourself - your work life and personal interests</p>
+            <ng-container *ngIf="model.biography && model.biography?.description; else addBioTemplate">
+                <div class="content">
+                    <app-biography-display [biography]="model.biography"></app-biography-display>
+                </div>
+            </ng-container>
+            <ng-template #addBioTemplate>
+                <a (click)="openDialog(dialogType.bio)"><p class="entry">Add Bio</p></a>
+            </ng-template>
+        </article>
+
+        <article>
+            <h3>Education<a (click)="openDialog(dialogType.education)"><img class="has-cursor" src="{{Images.addIcon}}"></a></h3>
+            <p>Share where and when you received your education</p>
+            <ng-container *ngIf="model.educations.length; else addEducationTemplate">
+                <div class="content" *ngFor="let edu of model.educations">
+                    <app-education-item-display [education]="edu"></app-education-item-display>
+                </div>
+            </ng-container>
+            <ng-template #addEducationTemplate>
+                <a (click)="openDialog(dialogType.education)"><p class="entry">Add Education</p></a>
+            </ng-template>
+        </article>
+
+        <article>
+            <h3>Honors and Awards<a (click)="openDialog(dialogType.honorAward)"><img class="has-cursor" src="{{Images.addIcon}}"></a></h3>
+            <p>List past accolades and recognition</p>
+            <ng-container *ngIf="model.honorsAndAwards.length; else addHonorsAndAwardsTemplate">
+                <div class="content" *ngFor="let award of model.honorsAndAwards">
+                    <app-award-item-display [award]="award"></app-award-item-display>
+                </div>
+            </ng-container>
+            <ng-template #addHonorsAndAwardsTemplate>
+                <a (click)="openDialog(dialogType.honorAward)"><p class="entry">Add Honors and Awards</p></a>
+            </ng-template>
+        </article>
+
+        <article>
+            <h3>Job History<a (click)="openDialog(dialogType.jobHistory)"><img class="has-cursor" src="{{Images.addIcon}}"></a></h3>
+            <p>Provide an overview of employment experience</p>
+            <ng-container *ngIf="model.jobHistories.length; else addJobHistoriesTemplate">
+                <div class="content" *ngFor="let history of model.jobHistories">
+                    <app-job-history-item-display [jobHistory]="history"></app-job-history-item-display>
+                </div>
+            </ng-container>
+            <ng-template #addJobHistoriesTemplate>
+                <a (click)="openDialog(dialogType.jobHistory)"><p class="entry">Add Job History</p></a>
+            </ng-template>
+        </article>
+
+        <article>
+            <h3>LinkedIn<a (click)="openDialog(dialogType.linkedIn)"><img class="has-cursor" *ngIf="!model?.linkedIn?.url" src="{{Images.addIcon}}"></a></h3>
+            <ng-container *ngIf="model.linkedIn && model.linkedIn?.url; else addLinkedInTemplate">
+                <div class="content">
+                    <app-linked-in-display [linkedIn]="model.linkedIn"></app-linked-in-display>
+                </div>
+            </ng-container>
+            <ng-template #addLinkedInTemplate>
+                <a (click)="openDialog(dialogType.linkedIn)"><p class="entry">Add LinkedIn</p></a>
+            </ng-template>
+        </article>
+
+        <article>
+            <h3>Professional Associations<a (click)="openDialog(dialogType.professionalAssociation)"><img class="has-cursor" src="{{Images.addIcon}}"></a></h3>
+            <p>Relate your professional memberships here</p>
+            <ng-container *ngIf="model.professionalAssociations.length; else addProfessionalAssociationTemplate">
+                <div class="content" *ngFor="let assoc of model.professionalAssociations">
+                    <app-profession-association-item-display [proAssoc]="assoc">
+                    </app-profession-association-item-display>
+                </div>
+            </ng-container>
+            <ng-template #addProfessionalAssociationTemplate>
+                <a (click)="openDialog(dialogType.professionalAssociation)"><p class="entry">Add Professional Associations</p></a>
+            </ng-template>
+        </article>
+
+    </div>
+</ng-container>

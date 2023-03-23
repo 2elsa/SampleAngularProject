@@ -1,0 +1,53 @@
+<div id="membership_form" *ngIf="form" style="margin-top: 50px;">
+    <b style="color:red">**Todo: Add email confirmation**</b>
+    <h3>Create an account - Become a member</h3>
+    <form [formGroup]="form" (submit)="createAccount()">
+        <label for="first_Name" [class.required]="form.get('first_Name')?.errors?.required">first Name</label>
+        <input type="text" id="first_Name" name="first_Name" placeholder="first Name" formControlName="first_Name">
+
+        <label for="last_Name" [class.required]="form.get('last_Name')?.errors?.required">last Name</label>
+        <input type="text" id="last_Name" name="last_Name" placeholder="last Name" formControlName="last_Name">
+
+        <label for="company_Name" [class.required]="form.get('company_Name')?.errors?.required">company Name</label>
+        <input type="text" id="company_Name" name="company_Name" placeholder="company Name"
+            formControlName="company_Name">
+
+        <label for="job_Title" [class.required]="form.get('job_Title')?.errors?.required">job Title</label>
+        <input type="text" id="job_Title" name="job_Title" placeholder="job Title" formControlName="job_Title">
+
+        <label for="client_Id" [class.required]="form.get('client_Id')?.errors?.required">client</label>
+        <select id="client_Id" name="client_Id" placeholder="client" formControlName="client_Id">
+            <option value="">Select one</option>
+            <option *ngFor="let client of clients" [value]="client.id">{{client.name}}</option>
+        </select>
+        <label for="phone_Number" [class.required]="form.get('phone_Number')?.errors?.required">phone Number</label>
+        <input type="text" id="phone_Number" name="phone_Number" placeholder="phone Number"
+            formControlName="phone_Number">
+
+        <label for="email_Address" [class.required]="form.get('email_Address')?.errors?.required">email</label>
+        <input type="text" id="email_Address" name="email_Address" placeholder="email_Address"
+            formControlName="email_Address">
+        <ng-container *ngIf="passwordRequired">
+            <label for="password" [class.required]="form.get('password')?.errors?.required">Password</label>
+            <input type="password" id="password" name="password" placeholder="password" formControlName="password">
+
+            <label for="confirmPassword" [class.required]="form.get('email_Address')?.errors?.required">Confirm
+                Password</label>
+            <input type="password" id="confirmPassword" name="email_Address" placeholder="confirmPassword"
+                formControlName="confirmPassword">
+        </ng-container>
+        <label for="permission_Id" [class.required]="form.get('permission_Id')?.errors?.required">permission
+            Level</label>
+        <select id="permission_Id" name="permission_Id" placeholder="permission" formControlName="permission_Id">
+            <option value="">Select one</option>
+            <option *ngFor="let perm of permissions" [value]="perm.id">{{perm.name}}</option>
+        </select>
+        <div class="form-button">
+            <button type="button" (click)="onCancel.emit()">cancel</button>
+            <button type="submit" [disabled]="form.invalid">{{model ? 'update account': 'create account'}}</button>
+        </div>
+    </form>
+    <div *ngIf="response?.type" class="alert-container">
+        <app-alert-message [alertType]="response!!.type!" [message]="response!!.msg!"></app-alert-message>
+    </div>
+</div>

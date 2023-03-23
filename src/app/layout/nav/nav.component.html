@@ -1,0 +1,11 @@
+<header>
+    <nav>
+        <ul>
+            <ng-container *ngFor="let item of navItems">
+                <li *ngIf="!item.hidden || !item.hidden()">
+                    <a [routerLink]="item.routerLink" (click)="item.onClick && item.onClick()" class="hotLink">{{formatNavItemLabel(item)}}</a>
+                </li>
+            </ng-container>
+        </ul>
+    </nav>
+</header>

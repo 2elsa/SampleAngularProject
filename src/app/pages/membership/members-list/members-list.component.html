@@ -1,0 +1,96 @@
+<ng-container [ngSwitch]="displayMode">
+    <ng-container *ngSwitchCase="'editor'" [ngTemplateOutlet]="editorTemplate"></ng-container>
+    <ng-container *ngSwitchDefault [ngTemplateOutlet]="gridTemplate"></ng-container>
+</ng-container>
+
+<ng-template #editorTemplate>
+    <app-member [model]="editModel" (onCancel)="cancel()"></app-member>
+</ng-template>
+
+<ng-template #gridTemplate>
+    <div class="new-member-container">
+        <button class="btn btn-sm" (click)="edit(null)"><img src="{{Images.addIcon}}"> Add New</button>
+        <span class="data-count" *ngIf="!loading">
+            <span>Total: </span><b>{{filteredMembers.length}} found</b>
+        </span>
+    </div>
+    <div *ngIf="members" class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Company</th>
+                    <th>Job Title</th>
+                    <th>Client</th>
+                    <th>Permission</th>
+                    <th>Actions</th>
+                </tr>
+                <tr>
+                    <th>
+                        <input type="text" class="input-sm" #firstName
+                            (input)="applyFilterToMembers(firstName.value!!,'first_Name')">
+                    </th>
+                    <th>
+                        <input type="text" class="input-sm" #lastName
+                            (input)="applyFilterToMembers(lastName.value!!,'last_Name')">
+                    </th>
+                    <th>
+                        <input type="text" class="input-sm" #email
+                            (input)="applyFilterToMembers(email.value!!,'email_Address')">
+                    </th>
+                    <th>
+                        <input type="text" class="input-sm" #phone
+                            (input)="applyFilterToMembers(phone.value!!,'phone_Number')">
+                    </th>
+                    <th>
+                        <input type="text" class="input-sm" #company
+                            (input)="applyFilterToMembers(company.value!!,'company_Name')">
+                    </th>
+                    <th>
+                        <input type="text" class="input-sm" #job
+                            (input)="applyFilterToMembers(job.value!!,'job_Title')">
+                    </th>
+                    <th>
+                        <select #client (change)="applyFilterToMembers(client.value,'client_Id')">
+                            <option value=""></option>
+                            <option *ngFor="let c of clients" [value]="c.id">{{c.name}}</option>
+                        </select>
+                    </th>
+                    <th>
+                        <select #permission (change)="applyFilterToMembers(permission.value,'permission_Id')">
+                            <option value=""></option>
+                            <option *ngFor="let p of permissions" [value]="p.id">{{p.name}}</option>
+                        </select>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="loading || !filteredMembers.length">
+                    <td colspan="9">
+                        <i>{{loading? 'Loading...' : 'No member found'}}</i>
+                    </td>
+                </tr>
+                <tr *ngFor="let member of filteredMembers">
+                    <td>{{member.first_Name}}</td>
+                    <td>{{member.last_Name}}</td>
+                    <td>{{member.email_Address}}</td>
+                    <td>{{member.phone_Number}}</td>
+                    <td>{{member.company_Name}}</td>
+                    <td>{{member.job_Title}}</td>
+                    <td>{{member.client?.name}}</td>
+                    <td>{{member.permission?.name}}</td>
+                    <td>
+                        <button class="has-cursor btn btn-sm" (click)="delete(member)"><img src="{{Images.trashIcon}}"
+                                alt="Delete"></button>
+                        <button class="has-cursor btn btn-sm" (click)="edit(member)"><img src="{{Images.editIcon}}"
+                                alt="Edit"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-template>

@@ -1,0 +1,12 @@
+<ng-container *ngIf="proAssoc">
+    <div class="position-relative">
+        <div>
+            <p><b>{{proAssoc.association_Name}}</b></p>
+            <p><b>{{proAssoc.start_Year}} - {{ proAssoc.is_Present? 'Present' : proAssoc.end_Year}}</b></p>
+        </div>
+        <div class="trash-container">
+            <img class="icon has-cursor" src="{{Images.editIcon}}" alt="edit" (click)="edit()" />
+            <img class="icon has-cursor" src="{{Images.trashIcon}}" alt="delete" (click)="delete()" />
+        </div>
+    </div>
+</ng-container>

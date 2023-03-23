@@ -1,0 +1,16 @@
+<ng-container *ngIf="optionList">
+    <app-dialog-display [title]="title">
+        <div *ngIf="contentTemplate">
+            <ng-template [ngTemplateOutlet]="contentTemplate"></ng-template>
+        </div>
+        <ng-container *ngIf="splitIntoGroups(optionList) as groups">
+            <ng-template ngFor let-group="$implicit" [ngForOf]="groups">
+                <div class="grid_{{columnWidth}}">
+                    <app-radiobutton-displaylist [dataList]="group"
+                        (selectionChanged)="onSelectionChanged($event)">
+                    </app-radiobutton-displaylist>
+                </div>
+            </ng-template>
+        </ng-container>
+    </app-dialog-display>
+</ng-container>

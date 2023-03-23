@@ -1,0 +1,89 @@
+<ng-container *ngIf="form">
+    <app-dialog-display [title]="title">
+        <div class="form-container">
+            <form [formGroup]="form">
+                <div class="form-group">
+                    <label for="country" [class.required]="form.get('country_Id')?.errors?.required">Country</label>
+                    <ng-select [items]="countries" bindLabel="name" bindValue="id" formControlName="country_Id"
+                        [clearable]="true" [notFoundText]="'No country found'" [placeholder]="'Select Country'"
+                        [selectOnTab]="true" id="country" class="select"></ng-select>
+                </div>
+                <div class="form-group">
+                    <label for="State" [class.required]="form.get('state_Id')?.errors?.required">State/Province</label>
+                    <ng-select [items]="states" [clearable]="true" bindValue="id" bindLabel="long_Name"
+                        [notFoundText]="'No state found'" [placeholder]="'Select State'" [selectOnTab]="true" id="State"
+                        formControlName="state_Id" class="select">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{formatState(item)}}
+                        </ng-template>
+                    </ng-select>
+                </div>
+                <div class="form-group">
+                    <label for="city" [class.required]="form.get('city')?.errors?.required">City</label>
+                    <input type="text" id="city" formControlName="city">
+                </div>
+                <div class="form-group">
+                    <label for="school" [class.required]="form.get('school')?.errors?.required">School</label>
+                    <input type="text" id="school" formControlName="school">
+                </div>
+                <div class="form-group">
+                    <label for="degree" [class.required]="form.get('degree')?.errors?.required">Degree</label>
+                    <input type="text" id="degree" formControlName="degree">
+                </div>
+                <div class="form-group">
+                    <label for="degree_Year" [class.required]="form.get('degree_Year')?.errors?.required">Degree
+                        Year</label>
+                    <div>
+                        <ng-select [items]="startYears" [clearable]="true" [notFoundText]="'Year not found'"
+                            [placeholder]="'Select Degree Year'" [selectOnTab]="true" id="degree_Year"
+                            formControlName="degree_Year" class="select"></ng-select>
+                    </div>
+                </div>
+                <div class="form-group" [class.required]="form.get('fields_Of_Study')?.errors?.required">
+                    <label for="fields_Of_Study">Field(s) of Study</label>
+                    <input type="text" id="fields_Of_Study" formControlName="fields_Of_Study">
+                </div>
+                <div class="form-group">
+                    <div class="year-container">
+                        <span>Year Attended</span>
+                    </div>
+                    <div id="dual-input">
+                        <div class="grid_3">
+                            <label for="year_From"
+                                [class.required]="form.get('year_From')?.errors?.required">From</label>
+                            <ng-select [items]="startYears" [clearable]="true" [notFoundText]="'Year not found'"
+                                [placeholder]="'Select Year'" [selectOnTab]="true" id="year_From"
+                                formControlName="year_From" class="select"></ng-select>
+                        </div>
+                        <div class="grid_3">
+                            <label for="year_To" [class.required]="form.get('year_To')?.errors?.required">To</label>
+                            <ng-select [items]="endYears" [clearable]="true" [notFoundText]="'Year not found'"
+                                [placeholder]="'Select Year'" [selectOnTab]="true" id="year_To"
+                                formControlName="year_To" class="select"></ng-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group clear-float">
+                    <label for="dissertation"
+                        [class.required]="form.get('dissertation')?.errors?.required">Dissertation</label>
+                    <input type="text" id="dissertation" formControlName="dissertation">
+                </div>
+                <div class="form-group">
+                    <label for="advisor" [class.required]="form.get('advisor')?.errors?.required">Advisor</label>
+                    <input type="text" id="advisor" formControlName="advisor">
+                </div>
+                <div class="form-group">
+
+                    <label for="is_Highest" [class.required]="form.get('is_Highest')?.errors?.required">
+                        <input type="checkbox" id="is_Highest" formControlName="is_Highest">
+                        This is the highest degree attained</label>
+                </div>
+                <hr />
+                <div class="btn-container">
+                    <button (click)="saveForm()" [disabled]="form.invalid">Save</button>
+                    <button (click)="close()">Close</button>
+                </div>
+            </form>
+        </div>
+    </app-dialog-display>
+</ng-container>

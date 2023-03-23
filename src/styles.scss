@@ -1,0 +1,113 @@
+@import "~quill/dist/quill.core.css";
+@import "~quill/dist/quill.bubble.css";
+@import "~quill/dist/quill.snow.css";
+@import "_variables";
+@import "assets/css/form.scss";
+
+//default theme for ng-select
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$flxwealthmanager-client-primary: mat-palette($mat-indigo);
+$flxwealthmanager-client-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$flxwealthmanager-client-warn: mat-palette($mat-red);
+
+$custom-typography: mat-typography-config(
+  $font-family: $font-family,
+);
+
+@include mat-core($custom-typography);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$flxwealthmanager-client-theme: mat-light-theme(
+  (
+    color: (
+      primary: $flxwealthmanager-client-primary,
+      accent: $flxwealthmanager-client-accent,
+      warn: $flxwealthmanager-client-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($flxwealthmanager-client-theme);
+
+.position-relative {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  .trash-container {
+    display: flex;
+    align-items: center;
+    img.icon {
+      float: none;
+    }
+    img.icon:last-child {
+      margin-left: 5px;
+    }
+  }
+}
+
+.has-cursor {
+  cursor: pointer;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.clear-float {
+  clear: both;
+}
+
+.top-stories-container {
+  max-height: 750px;
+  overflow-y: auto;
+}
+::-webkit-scrollbar {
+  width: 20px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+.h-100 {
+  height: 100%;
+}
+
+.ng-select.select {
+  margin: 8px 0;
+  .ng-select-container {
+    font-family: $font-family;
+    height: $form-input-height;
+    ng-dropdown-panel.ng-dropdown-panel .ng-dropdown-panel-items .ng-option .ng-option-label {
+      font-family: $font-family;
+    }
+  }
+}

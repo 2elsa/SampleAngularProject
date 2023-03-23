@@ -1,0 +1,25 @@
+<div class="img-container">
+    <ng-container *ngIf="profilePicture && profilePicture.picture;else noImageTemplate;">
+        <img [src]="profilePictureUrl" class="profile-pic" style="width: 220px;">
+    </ng-container>
+    <ng-template #noImageTemplate>
+        <img src="{{Images.logo}}">
+    </ng-template>
+    <p class="img-action" (click)="addProfilePicture()">
+        <span>{{profilePicture && profilePicture.picture ? 'Change Picture': 'Add Profile Picture'}}</span>
+    </p>
+</div>
+<div *ngIf="client">
+    <ng-container *ngIf="!inEditMode; else editModeTemplate">
+        <h1 [ngClass]="{'has-cursor  tagline': hasTaglineEditPermission}" (click)="toggleEditMode()"
+            [innerHTML]="client.tagline | parseHtml"></h1>
+    </ng-container>
+    <ng-template #editModeTemplate>
+        <input type="text" [(ngModel)]="client.tagline" />
+        <div class="action-containers">
+            <button class="action cancel has-cursor" (click)="toggleEditMode()">cancel</button>
+            | <button class="has-cursor action ok" (click)="saveTagline()" [disabled]="!hasChanged">save</button>
+        </div>
+    </ng-template>
+
+</div>

@@ -1,0 +1,27 @@
+<div>
+    <app-dialog-display [title]="'Add Your Profile Image'">
+        <div class="profile-image-container">
+            <small>File must not be greater than {{permittedFileSize.size}} {{permittedFileSize.desc}}.</small>
+            <div class="input-file">
+                <label class="label-input-file">
+                    Choose Profile Picture
+                    <input type="file" (change)="onFileLoaded($event)"
+                        accept="image/png, image/jpg, image/jpeg, image/svg+xml" />
+                </label>
+            </div>
+            <ng-container *ngIf="fileSrc">
+                <hr />
+                <img src="{{fileSrc}}" />
+                <div class="action-buttons">
+                    <button class="btn btn-small" mat-dialog-close>Close</button>
+                    <button class="btn btn-small" (click)="uploadImage()" [disabled]="!canSaveFile()">Upload</button>
+                </div>
+                <div class="error-desc" *ngIf="fileSizeInfo && !canSaveFile()">
+                    <small>
+                        The file Size of about {{fileSizeInfo.size}} {{fileSizeInfo.desc}} is too big.
+                    </small>
+                </div>
+            </ng-container>
+        </div>
+    </app-dialog-display>
+</div>

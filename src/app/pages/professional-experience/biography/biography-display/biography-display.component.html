@@ -1,0 +1,11 @@
+<ng-container *ngIf="biography">
+    <div class="content position-relative">
+        <div>
+            <p [innerHTML]="biography?.description | parseHtml"></p>
+        </div>
+        <div class="trash-container">
+            <img class="icon has-cursor" src="{{Images.editIcon}}" alt="edit" (click)="edit()" />
+            <img class="icon has-cursor" src="{{Images.trashIcon}}" alt="delete" (click)="delete()" />
+        </div>
+    </div>
+</ng-container>

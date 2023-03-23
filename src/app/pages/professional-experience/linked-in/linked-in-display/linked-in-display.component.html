@@ -1,0 +1,11 @@
+<ng-container *ngIf="linkedIn">
+    <div class="position-relative">
+        <div>
+            <p><img class="linkedIn-img" src="{{Images.linkedInIcon}}" alt=""><a href="{{linkedIn.url}}" target="_blank">{{linkedIn.url}}</a></p>
+        </div>
+        <div class="trash-container">
+            <img class="icon has-cursor" src="{{Images.editIcon}}" alt="edit" (click)="edit()"/>
+            <img class="icon has-cursor" src="{{Images.trashIcon}}" alt="delete" (click)="delete()"/>
+        </div>
+    </div>
+</ng-container>

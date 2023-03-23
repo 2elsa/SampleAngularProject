@@ -1,0 +1,85 @@
+img {
+  margin-top: 10px;
+  width: 350px;
+  height: auto;
+}
+.profile-image-container {
+  small {
+    display: inline-block;
+    margin-bottom: 10px;
+    &::before {
+      content: "*";
+      color: red;
+      margin-right: 2px;
+    }
+  }
+  .error-desc {
+    margin-top: 5px;
+    color: red;
+  }
+}
+
+.action-buttons {
+  text-align: center;
+  margin-top: 10px;
+  button {
+    width: 70px;
+    padding: 5px;
+  }
+}
+.input-file {
+  border: 1px dashed #ccc;
+  display: block;
+  padding: 30px;
+  width: 220px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+}
+
+.label-input-file {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: inline-block;
+  padding-top: 22px;
+  cursor: pointer;
+}
+.label-input-file b {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  font-weight: normal;
+  cursor: pointer;
+}
+.label-input-file input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: 0;
+}
+body {
+  background-color: #f8f8f8;
+}
+body,
+input,
+button {
+  font-family: sans-serif;
+  line-height: 16px !important;
+}
+form {
+  max-width: 500px;
+  margin: 0 auto;
+}

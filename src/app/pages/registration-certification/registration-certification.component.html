@@ -1,0 +1,49 @@
+<ng-container *ngIf="model">
+    <div>
+        <h2>Licensing</h2>
+        <article>
+            <h3>Certifications<a (click)="openDialog(dialogType.certification)"><img src="{{Images.editIcon}}"></a></h3>
+            <ng-container *ngIf="model.certifications.length; else addCertificationTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let cert of model.certifications">{{cert.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addCertificationTemplate>
+                <a (click)="openDialog(dialogType.certification)"><p class="entry">Add Certifications</p></a>
+            </ng-template>
+        </article>
+
+        <article>
+            <h3>Years of financial services industry experience<a (click)="openDialog(dialogType.industry_experience)"><img src="{{Images.editIcon}}"></a></h3>
+            <p>Number of years of financial services industry experience</p>
+            <ng-container *ngIf="model.industryExperience && model.industryExperience?.name; else addIndustryExperienceTemplate">
+                <div class="content">{{model.industryExperience!!.name}}</div>
+            </ng-container>
+            <ng-template #addIndustryExperienceTemplate>
+                <a (click)="openDialog(dialogType.industry_experience)"><p class="entry">Add years of industry experience</p></a>
+            </ng-template>
+        </article>
+
+        <article>
+            <h3>Registrations<a (click)="openDialog(dialogType.registration)"><img src="{{Images.editIcon}}"></a></h3>
+            <ng-container *ngIf="model.registrations.length; else addRegistrationTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let reg of model.registrations">{{reg.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addRegistrationTemplate>
+                <a (click)="openDialog(dialogType.registration)"><p class="entry">Add registrations</p></a>
+            </ng-template>
+        </article>
+        <article>
+            <h3>CRD #<a (click)="openDialog(dialogType.crd)"><img src="{{Images.editIcon}}"></a></h3>
+            <ng-container *ngIf="model.crd && model.crd.crd_Number; else addCrdTemplate">
+                <div class="content">{{model.crd!!.crd_Number}}</div>
+            </ng-container>
+            <ng-template #addCrdTemplate>
+                <a (click)="openDialog(dialogType.crd)"><p class="entry">Add CRD #</p></a>
+            </ng-template>
+        </article>
+
+    </div>
+</ng-container>

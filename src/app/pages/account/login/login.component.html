@@ -1,0 +1,19 @@
+<div id="membership_form" *ngIf="form">
+    <h3>Member Login</h3>
+    <form (submit)="login()" [formGroup]="form">
+        <label for="emailAddress" [class.required]="form.get('emailAddress')?.errors?.required">email</label>
+        <input type="text" id="emailAddress" name="emailAddress" placeholder="email" formControlName="emailAddress">
+
+        <label for="lname" [class.required]="form.get('password')?.errors?.required">Password</label>
+        <input type="password" id="password" name="password" placeholder="password" formControlName="password">
+
+        <div class="form-button">
+            <button type="submit" [disabled]="form.invalid || busy">login</button>
+        </div>
+    </form>
+    <a [routerLink]="['/account/password-forgotten']" class="forgot-password">Forgot your password?</a>
+
+    <div *ngIf="errorMsg" class="alert-container">
+        <app-alert-message [alertType]="'error'" [message]="errorMsg"></app-alert-message>
+    </div>
+</div>

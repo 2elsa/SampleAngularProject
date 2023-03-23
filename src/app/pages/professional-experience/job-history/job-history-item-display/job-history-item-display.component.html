@@ -1,0 +1,14 @@
+<ng-container *ngIf="jobHistory">
+    <div class="position-relative">
+        <div>
+            <p><b>{{jobHistory.company_Name}}</b></p>
+            <p><b>{{jobHistory.title}}</b></p>
+            <p>{{jobHistory | countryStateFormatter}}</p>
+            <p>{{jobHistory.start_Date | date:'MMMM y'}} - {{jobHistory.is_Present ? 'Present' : jobHistory.end_Date | date:'MMMM y'}}</p>
+        </div>
+        <div class="trash-container">
+            <img class="icon has-cursor" src="{{Images.editIcon}}" alt="edit" (click)="edit()"/>
+            <img class="icon has-cursor" src="{{Images.trashIcon}}" alt="delete" (click)="delete()"/>
+        </div>
+    </div>
+</ng-container>

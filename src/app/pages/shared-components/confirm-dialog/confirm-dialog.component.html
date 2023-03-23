@@ -1,0 +1,10 @@
+<app-dialog-display [title]="'Confirm'">
+<div>
+    <p [innerHTML]>{{warningMsg}}</p>
+    <hr />
+    <div class="button-container">
+        <button (click)="cancel()">No</button>
+        <button (click)="confirmed()">Yes</button>
+    </div>
+</div>
+</app-dialog-display>

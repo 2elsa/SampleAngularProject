@@ -1,0 +1,17 @@
+<div>
+    <ng-container [ngSwitch]="alertType">
+        <ng-container *ngSwitchCase="'success'">
+            <p class="alert success" [style.background-image]="'url('+images.successIcon+')'" [innerHTML]="message | parseHtml"
+            [ngStyle]="styles"></p>
+        </ng-container>
+        <ng-container *ngSwitchCase="'error'">
+            <p class="alert error" [style.background-image]="'url('+images.errorIcon+')'" [innerHTML]="message | parseHtml"></p>
+        </ng-container>
+        <ng-container *ngSwitchCase="'warning'">
+            <p class="alert warning" [style.backgroundImage]="'url('+images.errorIcon+')'" [innerHTML]="message | parseHtml"></p>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+            <p class="alert error">No template selected</p>
+        </ng-container>
+    </ng-container>
+</div>

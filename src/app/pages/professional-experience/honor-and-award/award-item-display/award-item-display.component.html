@@ -1,0 +1,13 @@
+<ng-container *ngIf="award">
+    <div class="position-relative">
+        <div>
+            <p><b>{{award.award_Name}}</b></p>
+            <p><b>{{award.award_Organization}} ({{award.acronym}})</b></p>
+            <p>{{award.years}}</p>
+        </div>
+        <div class="trash-container">
+            <img class="icon has-cursor" src="{{Images.editIcon}}" alt="edit" (click)="edit()"/>
+            <img class="icon has-cursor" src="{{Images.trashIcon}}" alt="delete" (click)="delete()"/>
+        </div>
+    </div>
+</ng-container>

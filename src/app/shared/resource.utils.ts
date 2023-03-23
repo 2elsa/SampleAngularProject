@@ -1,0 +1,21 @@
+export const ImageSources = {
+    background: require('@images/bkgd-100x1.png').default,
+    whiteFlxTextLogo: require('@images/flx-logo-white-130x58.png').default,
+    largeLogo: require('@images/flx-logo-white-500x238.png').default,
+    engagementIcon: require('@images/icon-engagement.png').default,
+    quickLinksIcon: require('@images/icon-qlinks.png').default,
+    investmentIcon: require('@images/icon-investment.png').default,
+    regCertIcon: require('@images/icon-reg-cert.png').default,
+    proExpIcon: require('@images/icon-pro-experience.png').default,
+    editIcon: require('@images/icon-edit.png').default,
+    logo: require('@images/flx-partner.jpg').default,
+    progressBar: require('@images/progress-bar.png').default,
+    linkedInIcon: require('@images/linkedIn.png').default,
+    welcomeLogo: require('@images/welcome-logo.png').default,
+    trashIcon: require('@images/icon-trash.png').default,
+    addIcon: require('@images/icon-add.png').default,
+    homeBkgd: require('@images/home-bkgd.jpg').default,
+    errorIcon: require('@images/icon-error.png').default,
+    successIcon: require('@images/icon-success.png').default,
+    loadingImg: require('@images/loading.gif').default
+};

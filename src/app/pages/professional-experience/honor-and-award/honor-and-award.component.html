@@ -1,0 +1,32 @@
+<ng-container *ngIf="form">
+    <app-dialog-display [title]="title">
+        <form [formGroup]="form" class="form-container">
+            <div class="form-group">
+                <label for="award_Name" [class.required]="form.get('award_Name')?.errors?.required">Award</label>
+                <input type="text" id="award_Name" formControlName="award_Name">
+            </div>
+            <div class="form-group">
+                <div>
+                    <span>Award Organization and Acronym</span>
+                </div>
+                <div id="dual-input"> 
+                    <div id="award-org-input" [class.required]="form.get('award_Organization')?.errors?.required">
+                        <input type="text" id="award_Organization" formControlName="award_Organization">
+                    </div>
+                    <div id="acronym-input" [class.required]="form.get('acronym')?.errors?.required">
+                        <input type="text" id="acronym" formControlName="acronym">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group clear-float">
+                <label for="years" [class.required]="form.get('years')?.errors?.required">Year(s)</label>
+                <input type="text" id="years" formControlName="years">
+            </div>
+            <hr />
+            <div class="btn-container">
+                <button (click)="saveForm()" [disabled]="form.invalid">Save</button>
+                <button (click)="close()">Close</button>
+            </div>
+        </form>
+    </app-dialog-display>
+</ng-container>

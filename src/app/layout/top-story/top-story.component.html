@@ -1,0 +1,17 @@
+<div id="stories">
+    <h2>Top Stories</h2>
+    <div class="top-stories-container">
+        <ng-container *ngFor="let story of topStories">
+            <section>
+                <h4>
+                    <a href="{{story.link}}" target="_blank">
+                        <span [innerHTML]="story.title | parseHtml"></span>
+                    </a>
+                </h4>
+                <h5>{{story.shortDate}} • Market Watch • {{story.dateDistance}}</h5>
+                <p [innerHTML]="story.content | parseHtml"></p>
+            </section>
+        </ng-container>
+    </div>
+</div>
+<!--end stories-->

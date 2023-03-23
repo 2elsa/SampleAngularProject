@@ -1,0 +1,32 @@
+.has-sub-nav {
+  .sub-nav {
+    display: none;
+    flex-direction: column;
+    background-color: #001e44;
+    width: 175px;
+
+    li {
+      padding: 0;
+      position: relative;
+      line-height: 55px;
+      border-bottom: 1px solid black;
+      margin-left: 0;
+      text-align: center;
+    }
+  }
+
+  div {
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.7);
+    .sub-nav {
+      position: absolute;
+      display: flex;
+    }
+  }
+}

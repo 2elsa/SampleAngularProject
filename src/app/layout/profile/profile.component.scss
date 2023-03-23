@@ -1,0 +1,49 @@
+.img-container {
+  cursor: pointer;
+  position: relative;
+  &:hover {
+    opacity: 0.6;
+    .img-action {
+      visibility: visible;
+      opacity: 1;
+      z-index: 100;
+      span {
+        display: inline-block;
+        position: absolute;
+        font-size: larger;
+        top: 80px;
+        left: 32px;
+      }
+    }
+
+    .profile-pic {
+      height: auto;
+    }
+  }
+
+  .img-action {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(29, 106, 154, 0.72);
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s, visibility 0.2s;
+  }
+}
+
+.tagline:hover {
+  cursor: text;
+  border: 1px dashed #898181;
+}
+.action-containers {
+  padding-left: 25px;
+  .action {
+    display: inline-block;
+    border: 1px solid lightgray;
+    padding: 2px 8px;
+  }
+}

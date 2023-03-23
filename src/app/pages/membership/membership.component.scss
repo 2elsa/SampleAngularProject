@@ -1,0 +1,12 @@
+@import "_variables";
+
+.membership {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.membership-container {
+  background-color: $color-white;
+  overflow: auto;
+  padding: 5px;
+}

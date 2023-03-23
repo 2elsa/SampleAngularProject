@@ -1,0 +1,15 @@
+<div *ngIf="form">
+    <app-dialog-display [title]="title">
+        <form [formGroup]="form" class="form-container">
+            <div class="form-group">
+                <label for="url" [class.required]="form.get('url')?.errors?.required">LinkedIn Profile url</label>
+                <input type="text" id="url" formControlName="url">
+            </div>
+        </form>
+        <hr />
+        <div class="btn-container">
+            <button (click)="saveForm()" [disabled]="form.invalid">Save</button>
+            <button (click)="close()">Close</button>
+        </div>
+    </app-dialog-display>
+</div>

@@ -1,0 +1,21 @@
+<ng-container *ngIf="model">
+    <app-dialog-display [title]="title">
+        <div>
+            <p class="form-note">
+                <span class="highlight">Note: </span>
+                <span>
+                    Editing this will update your main profile as well as your mentor/mentee <br /> profile if
+                    applicable.
+                </span>
+            </p>
+        </div>
+        <div class="form-content">
+            <p><label for="reviewManager">Enter one additional value</label></p>
+            <p><input type="text" id="reviewManager" [(ngModel)]="model.reviewer"></p>
+        </div>
+        <div class="btn-container">
+            <button mat-button (click)="saveChanges(model)">Save</button>
+            <button mat-button [mat-dialog-close]>Close</button>
+        </div>
+    </app-dialog-display>
+</ng-container>

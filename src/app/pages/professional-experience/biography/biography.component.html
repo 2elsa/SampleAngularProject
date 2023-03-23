@@ -1,0 +1,14 @@
+<div [formGroup]="form" *ngIf="form" class="form-container">
+    <app-dialog-display [title]="title">
+        <quill-editor formControlName="description" [placeholder]="'Type here'"
+        (onContentChanged)="detectChanges()">
+
+        </quill-editor>
+        
+        <hr />
+        <div class="btn-container">
+            <button (click)="saveForm()" [disabled]="form.invalid">Save</button>
+            <button (click)="close()">Close</button>
+        </div>
+    </app-dialog-display>
+</div>

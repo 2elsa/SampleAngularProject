@@ -1,0 +1,17 @@
+<ng-container *ngIf="optionList">
+    <app-dialog-display [title]="title">
+        <div *ngIf="contentTemplate">
+            <ng-template [ngTemplateOutlet]="contentTemplate"></ng-template>
+        </div>
+        <div class="groups">
+        <ng-container *ngIf="splitIntoGroups(optionList) as groups">
+            <ng-template ngFor let-group="$implicit" [ngForOf]="groups">
+                <div class="grid_{{columnWidth}}">
+                    <app-checkbox-displaylist [dataList]="group" [checkboxType]="checkboxType"
+                        (selectionChanged)="onSelectionChanged($event)">
+                    </app-checkbox-displaylist>
+                </div>
+            </ng-template>
+        </ng-container></div>
+    </app-dialog-display>
+</ng-container>

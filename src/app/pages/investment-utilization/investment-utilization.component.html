@@ -1,0 +1,115 @@
+<ng-container *ngIf="model">
+    <div>
+        <h2>Investment Utilization</h2>
+        <article>
+            <h3>Allocation<a (click)="openDialog(dialogType.allocation)"><img src="{{Images.editIcon}}"></a></h3>
+            <ng-container *ngIf="model.allocation.length; else addAllocationTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let time of model.allocation">{{time.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addAllocationTemplate>
+                <a (click)="openDialog(dialogType.allocation)"><p class="entry">Add Allocation</p></a>
+            </ng-template>
+        </article>
+        <article>
+            <h3>Alternative<a (click)="openDialog(dialogType.alternative)"><img src="{{Images.editIcon}}"></a></h3>
+            <ng-container *ngIf="model.alternative.length; else addAlternativeTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let time of model.alternative">{{time.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addAlternativeTemplate>
+                <a (click)="openDialog(dialogType.alternative)"><p class="entry">Add Alternative</p></a>
+            </ng-template>
+        </article>
+        <article>
+            <h3>Commodity<a (click)="openDialog(dialogType.commodity)"><img src="{{Images.editIcon}}"></a></h3>
+            <ng-container *ngIf="model.commodity.length; else addCommodityTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let time of model.commodity">{{time.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addCommodityTemplate>
+                <a (click)="openDialog(dialogType.commodity)"><p class="entry">Add Commodity</p></a>
+            </ng-template>
+        </article>
+        <article>
+            <h3>Equity<a (click)="openDialog(dialogType.equity)"><img src="{{Images.editIcon}}"></a></h3>
+            <ng-container *ngIf="model.equity.length; else addEquityTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let time of model.equity">{{time.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addEquityTemplate>
+                <a (click)="openDialog(dialogType.equity)"><p class="entry">Add Equity</p></a>
+            </ng-template>
+        </article>
+        <article>
+            <h3>International Equity<a (click)="openDialog(dialogType.internationalEquity)"><img src="{{Images.editIcon}}"></a></h3>
+            <ng-container *ngIf="model.internationalEquity.length; else addInternationalEquityTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let time of model.internationalEquity">{{time.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addInternationalEquityTemplate>
+                <a (click)="openDialog(dialogType.internationalEquity)"><p class="entry">Add International Equity</p></a>
+            </ng-template>
+        </article>
+        <article>
+            <h3>Money Market<a (click)="openDialog(dialogType.moneyMarket)"><img src="{{Images.editIcon}}"></a></h3>
+            <ng-container *ngIf="model.moneyMarket.length; else addMoneyMarketTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let time of model.moneyMarket">{{time.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addMoneyMarketTemplate>
+                <a (click)="openDialog(dialogType.moneyMarket)"><p class="entry">Add Money Market</p></a>
+            </ng-template>
+        </article>
+        <article>
+            <h3>Municipal Bond<a (click)="openDialog(dialogType.municipalBond)"><img src="{{Images.editIcon}}"></a></h3>
+            <ng-container *ngIf="model.municipalBond.length; else addMunicipalBondTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let time of model.municipalBond">{{time.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addMunicipalBondTemplate>
+                <a (click)="openDialog(dialogType.municipalBond)"><p class="entry">Add Municipal Bond</p></a>
+            </ng-template>
+        </article>
+        <article>
+            <h3>Product<a (click)="openDialog(dialogType.product)"><img src="{{Images.editIcon}}"></a></h3>
+            <ng-container *ngIf="model.product.length; else addProductTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let time of model.product">{{time.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addProductTemplate>
+                <a (click)="openDialog(dialogType.product)"><p class="entry">Add Product</p></a>
+            </ng-template>
+        </article>
+        <article>
+            <h3>Sector Equity<a (click)="openDialog(dialogType.sectorEquity)"><img src="{{Images.editIcon}}"></a></h3>
+            <ng-container *ngIf="model.sectorEquity.length; else addSectorEquityTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let time of model.sectorEquity">{{time.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addSectorEquityTemplate>
+                <a (click)="openDialog(dialogType.sectorEquity)"><p class="entry">Add Sector Equity</p></a>
+            </ng-template>
+        </article>
+        <article>
+            <h3>Taxable Bond<a (click)="openDialog(dialogType.taxableBond)"><img src="{{Images.editIcon}}"></a></h3>
+            <ng-container *ngIf="model.taxableBond.length; else addTaxableBondTemplate">
+                <ul class="content">
+                    <li class="item" *ngFor="let time of model.taxableBond">{{time.name}}</li>
+                </ul>
+            </ng-container>
+            <ng-template #addTaxableBondTemplate>
+                <a (click)="openDialog(dialogType.taxableBond)"><p class="entry">Add Taxable Bond</p></a>
+            </ng-template>
+        </article>
+    </div>
+</ng-container>

@@ -1,0 +1,18 @@
+<div class="welcome h-100">
+    <div class="account-container h-100">
+        <div class="h-100 pane-container">
+            <div class="left-pane pane">
+                <div id="" class="h-100" [ngStyle]="{'background-image': 'url(' + imageSources.homeBkgd+ ')'}">
+                    <div class="img-container h-100">
+                        <img src="{{imageSources.whiteFlxTextLogo}}" alt="FLX">
+                    </div>
+                </div>
+            </div>
+            <div class="right-pane pane">
+                <div id="sidebar" class="h-100">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

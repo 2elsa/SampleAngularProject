@@ -1,0 +1,17 @@
+<ng-container *ngIf="education">
+    <div class="position-relative">
+        <div>
+            <p><b>{{education.school}}</b></p>
+            <p>{{education | countryStateFormatter}}</p>
+            <p>{{education.degree}}, {{education.degree_Year}}</p>
+            <p>{{education.fields_Of_Study}}</p>
+            <p>{{education.year_From}} To {{education.year_To}}</p>
+            <p>Dissertation: {{education.dissertation}}</p>
+            <p>Advisor: {{education.advisor}}</p>
+        </div>
+        <div class="trash-container">
+            <img class="icon has-cursor" src="{{Images.editIcon}}" alt="edit" (click)="edit()"/>
+            <img class="icon has-cursor" src="{{Images.trashIcon}}" alt="delete" (click)="delete()"/>
+        </div>
+    </div>
+</ng-container>

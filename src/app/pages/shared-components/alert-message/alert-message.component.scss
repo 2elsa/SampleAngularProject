@@ -1,0 +1,21 @@
+@import "_variables";
+.alert {
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-left: 0px;
+  margin-top: 0px;
+  padding-left: 40px;
+  padding-bottom: 0px;
+  color: $color-red;
+}
+.success {
+  color: $color-green;
+}
+
+.error {
+  color: $color-red;
+}
+.warning {
+  color: $color-gold;
+}
